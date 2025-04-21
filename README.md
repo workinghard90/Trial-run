@@ -248,9 +248,9 @@ STORED_USER_HASH = bcrypt.hashpw(b"spiritual_pass", bcrypt.gensalt())
 def check_password(password: str) -> bool:
     return bcrypt.checkpw(password.encode(), STORED_USER_HASH)
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset = "UTF-8">
     <title>{% block title %}AetherionAI{% endblock %}</title>
     <style>
         body { font-family: 'Georgia', serif; background: #fdf6f0; color: #333; padding: 2rem; }
@@ -268,25 +268,25 @@ def check_password(password: str) -> bool:
 {% block title %}Login{% endblock %}
 {% block content %}
 <h2>Enter the Sanctuary</h2>
-<form method="post">
+<form method = "post">
     <label>Password:</label>
-    <input type="password" name="password" required>
-    <button type="submit">Enter</button>
+    <input type = "password" name = "password" required>
+    <button type = "submit"> Enter</button>
 </form>
 {% if error %}
-<p style="color: red;">{{ error }}</p>
+<p style = "color: red;">{{ error }}</p>
 {% endif %}
 {% endblock %}
 {% extends 'base.html' %}
 {% block title %}Secure Upload{% endblock %}
 {% block content %}
-<h2>Encrypted File Upload</h2>
-<form method="post" enctype="multipart/form-data">
-    <label>Select File:</label>
-    <input type="file" name="file" required>
-    <button type="submit">Upload Securely</button>
+<h2> Encrypted File Upload </h2>
+<form method = "post" enctype = "multipart/form-data">
+    <label> Select File:</label>
+    <input type= "file" name = "file" required>
+    < button type="submit">Upload Securely</button>
 </form>
-{% endblock %}
+{ % endblock % }
 from cryptography.fernet import Fernet
 with open("file_encryption.key", "wb") as f:
     f.write(Fernet.generate_key())
