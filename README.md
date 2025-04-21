@@ -221,6 +221,25 @@ def upload():
 @app.route('/')
 def index():
     return redirect(url_for('login'))
+
+
+    if request.method == 'POST':
+        uploaded_file = request.files['file']
+        if uploaded_file:
+            original_data = uploaded_file.read()
+            encrypted_data = fernet.encrypt(original_data)
+            encrypted_filename = f"{uploaded_file.filename}.enc"
+            save_path = os.path.join(UPLOAD_FOLDER, encrypted_filename)
+            with open(save_path, "wb") as f:
+                f.write(encrypted_data)
+            flash("File uploaded and encrypted successfully.")
+            return redirect(url_for('upload'))
+
+    return render_template('upload.html')
+
+@app.route('/')
+def index():
+    return redirect(url_for('login'))
 import bcrypt
 
 # In a real app, store this securely
