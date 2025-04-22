@@ -31,9 +31,9 @@ MANIFEST
 
 # PyInstaller
 
-#  Usually these files are written by a python script from a template
+# Usually these files are written by a python script from a template
 
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+# before PyInstaller builds the exe, so as to inject date/other infos into it
 
 *.manifest
 *.spec
@@ -64,19 +64,19 @@ cover/
 *.mo
 *.pot
 
-# Django stuff:
+# Django stuff
 
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Flask stuff:
+# Flask stuff
 
 instance/
 .webassets-cache
 
-# Scrapy stuff:
+# Scrapy stuff
 
 .scrapy
 
@@ -100,57 +100,57 @@ ipython_config.py
 
 # pyenv
 
-#   For a library or package, you might want to ignore these files since the code is
+# For a library or package, you might want to ignore these files since the code is
 
-#   intended to run in multiple environments; otherwise, check them in:
+# intended to run in multiple environments; otherwise, check them in
 
 # .python-version
 
 # pipenv
 
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+# According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control
 
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+# However, in case of collaboration, if having platform-specific dependencies or dependencies
 
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+# having no cross-platform support, pipenv may install dependencies that don't work, or not
 
-#   install all needed dependencies.
+# install all needed dependencies
 
-#Pipfile.lock
+# Pipfile.lock
 
 # UV
 
-#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
+# Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control
 
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
+# This is especially recommended for binary packages to ensure reproducibility, and is more
 
-#   commonly ignored for libraries.
+# commonly ignored for libraries
 
-#uv.lock
+# uv.lock
 
 # poetry
 
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+# Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control
 
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
+# This is especially recommended for binary packages to ensure reproducibility, and is more
 
-#   commonly ignored for libraries.
+# commonly ignored for libraries
 
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+# <https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control>
 
-#poetry.lock
+# poetry.lock
 
 # pdm
 
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+# Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control
 
-#pdm.lock
+# pdm.lock
 
-#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+# pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
 
-#   in version control.
+# in version control
 
-#   https://pdm.fming.dev/latest/usage/project/#working-with-version-control
+# <https://pdm.fming.dev/latest/usage/project/#working-with-version-control>
 
 .pdm.toml
 .pdm-python
@@ -212,17 +212,17 @@ cython_debug/
 
 # PyCharm
 
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+# JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+# be found at <https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore>
 
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
+# and can be added to the global gitignore or merged into this file.  For a more nuclear
 
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
+# option (not recommended) you can uncomment the following to ignore the entire idea folder
 
-#.idea/
+# .idea/
 
-# Ruff stuff:
+# Ruff stuff
 
 .ruff_cache/
 
@@ -279,7 +279,6 @@ def upload():
 def index():
     return redirect(url_for('login'))
 
-
     if request.method == 'POST':
         uploaded_file = request.files['file']
         if uploaded_file:
@@ -311,6 +310,7 @@ def check_password(password: str) -> bool:
     <meta charset="UTF-8">
     <title>Enter the Sanctuary</title>
     <style>
+
         body { font-family: 'Georgia', serif; background: #fdf6f0; color: #333; padding: 2rem; }
         h2 { color: #5e4b8b; }
         form { margin-top: 1rem; }
