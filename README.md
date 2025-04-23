@@ -4,11 +4,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
+## C extensions
 
 *.so
 
-# Distribution / packaging
+## Distribution / packaging
 
 .Python
 build/
@@ -29,21 +29,21 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# PyInstaller
+## PyInstaller
 
-# Usually these files are written by a python script from a template
+## Usually these files are written by a python script from a template
 
-# before PyInstaller builds the exe, so as to inject date/other infos into it
+## before PyInstaller builds the exe, so as to inject date/other infos into it
 
 *.manifest
 *.spec
 
-# Installer logs
+## Installer logs
 
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+## Unit test / coverage reports
 
 htmlcov/
 .tox/
@@ -59,117 +59,117 @@ coverage.xml
 .pytest_cache/
 cover/
 
-# Translations
+## Translations
 
 *.mo
 *.pot
 
-# Django stuff
+## Django stuff
 
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Flask stuff
+## Flask stuff
 
 instance/
 .webassets-cache
 
-# Scrapy stuff
+## Scrapy stuff
 
 .scrapy
 
-# Sphinx documentation
+## Sphinx documentation
 
 docs/_build/
 
-# PyBuilder
+## PyBuilder
 
 .pybuilder/
 target/
 
-# Jupyter Notebook
+## Jupyter Notebook
 
 .ipynb_checkpoints
 
-# IPython
+## IPython
 
 profile_default/
 ipython_config.py
 
-# pyenv
+## pyenv
 
-# For a library or package, you might want to ignore these files since the code is
+## For a library or package, you might want to ignore these files since the code is
 
-# intended to run in multiple environments; otherwise, check them in
+## intended to run in multiple environments; otherwise, check them in
 
-# .python-version
+## .python-version
 
-# pipenv
+## pipenv
 
-# According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control
+## According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control
 
-# However, in case of collaboration, if having platform-specific dependencies or dependencies
+## However, in case of collaboration, if having platform-specific dependencies or dependencies
 
-# having no cross-platform support, pipenv may install dependencies that don't work, or not
+## having no cross-platform support, pipenv may install dependencies that don't work, or not
 
-# install all needed dependencies
+## install all needed dependencies
 
-# Pipfile.lock
+## Pipfile.lock
 
-# UV
+## UV
 
-# Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control
+## Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control
 
-# This is especially recommended for binary packages to ensure reproducibility, and is more
+## This is especially recommended for binary packages to ensure reproducibility, and is more
 
-# commonly ignored for libraries
+## commonly ignored for libraries
 
-# uv.lock
+## uv.lock
 
-# poetry
+## poetry
 
-# Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control
+## Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control
 
-# This is especially recommended for binary packages to ensure reproducibility, and is more
+## This is also especially recommended for binary packages to ensure reproducibility, and is more
 
-# commonly ignored for libraries
+## this is commonly ignored for libraries
 
-# <https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control>
+## <https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control>
 
-# poetry.lock
+## poetry.lock
 
-# pdm
+## pdm
 
-# Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control
+## Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control
 
-# pdm.lock
+## pdm.lock
 
-# pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+## pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
 
-# in version control
+## in version control
 
-# <https://pdm.fming.dev/latest/usage/project/#working-with-version-control>
+## <https://pdm.fming.dev/latest/usage/project/#working-with-version-control>
 
 .pdm.toml
 .pdm-python
 .pdm-build/
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+## PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 
 __pypackages__/
 
-# Celery stuff
+## Celery stuff
 
 celerybeat-schedule
 celerybeat.pid
 
-# SageMath parsed files
+## SageMath parsed files
 
 *.sage.py
 
-# Environments
+## Environments
 
 .env
 .venv
@@ -179,54 +179,54 @@ ENV/
 env.bak/
 venv.bak/
 
-# Spyder project settings
+## Spyder project settings
 
 .spyderproject
 .spyproject
 
-# Rope project settings
+## Rope project settings
 
 .ropeproject
 
-# mkdocs documentation
+## mkdocs documentation
 
 /site
 
-# mypy
+## mypy
 
 .mypy_cache/
 .dmypy.json
 dmypy.json
 
-# Pyre type checker
+## Pyre type checker
 
 .pyre/
 
-# pytype static type analyzer
+## pytype static type analyzer
 
 .pytype/
 
-# Cython debug symbols
+## Cython debug symbols
 
 cython_debug/
 
-# PyCharm
+## PyCharm
 
-# JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+## JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 
-# be found at <https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore>
+## be found at <https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore>
 
-# and can be added to the global gitignore or merged into this file.  For a more nuclear
+## and can be added to the global gitignore or merged into this file.  For a more nuclear
 
-# option (not recommended) you can uncomment the following to ignore the entire idea folder
+## option (not recommended) you can uncomment the following to ignore the entire idea folder
 
-# .idea/
+## .idea/
 
-# Ruff stuff
+## Ruff stuff
 
 .ruff_cache/
 
-# PyPI configuration file
+## PyPI configuration file
 
 .pypirc
 from flask import Flask, render_template, request, redirect, url_for, session, flash
@@ -298,7 +298,7 @@ def index():
     return redirect(url_for('login'))
 import bcrypt
 
-# In a real app, store this securely
+## In a real app, store this securely
 
 STORED_USER_HASH = bcrypt.hashpw(b"spiritual_pass", bcrypt.gensalt())
 
