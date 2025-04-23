@@ -229,31 +229,21 @@ cython_debug/
 # PyPI configuration file
 
 .pypirc
-from flask import Flask, render_template, request, redirect, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from app.auth import check_password
 from cryptography.fernet import Fernet
-from flask_sqlalchemy import SQLAlchemy
 import os
-import bcrypt
-from os import getenv
 
-# Initialize the Flask app and database
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATatabase_URI'] = 'sqlite:///memories.db'
-db.init_app(app)
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", "this_is_secret")
 
-# Define the encryption key path and create it if it doesn't exist
+UPLOAD_FOLDER = os.path.join(os.getcwd(), "secure_uploads")
 KEY_PATH = os.path.join(os.getcwd(), "file_encryption.key")
 with open(KEY_PATH, "rb") as key_file:
     fernet = Fernet(key_file.read())
 
-# Define the secure upload directory and ensure it's created
-UPLOAD_FOLDR = os.path.join(os.getcwd(), "secure_uploads")
-os.makedirs(UPLOAD_FOLDR, exist_ok=True)
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Flask-WTF setup
-app.secret_key = getenv("FLASK_SECRET_KEY", "this_is_secret")
-
-# Define the login route
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -266,61 +256,61 @@ def login():
             error = 'Access denied.'
     return render_template('login.html', error=error)
 
-# Define the password checking function
-def check_password(password: str) -> bool:
-    global STORED_USER_HASH
-    STORED_USER_HASH = bcrypt.hashpw(b"spiritual_pass", bcrypt.gensalt())
-    return bcrypt.checkpw(password.encode(), STORED_USER_HASH)
-
-# Define the file upload route
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
     if not session.get('authenticated'):
         return redirect(url_for('login'))
+
     if request.method == 'POST':
         uploaded_file = request.files['file']
         if uploaded_file:
             original_data = uploaded_file.read()
             encrypted_data = fernet.encrypt(original_data)
             encrypted_filename = f"{uploaded_file.filename}.enc"
-            save_path = os.path.join(UPLOAD_FOLDR, encrypted_filename)
+            save_path = os.path.join(UPLOAD_FOLDER, encrypted_filename)
             with open(save_path, "wb") as f:
                 f.write(encrypted_data)
             flash("File uploaded and encrypted successfully.")
             return redirect(url_for('upload'))
+
     return render_template('upload.html')
 
-# Define the index route to redirect to login
 @app.route('/')
 def index():
     return redirect(url_for('login'))
 
-# Initialize the database if it hasn't been already
-db.create_all()
+    if request.method == 'POST':
+        uploaded_file = request.files['file']
+        if uploaded_file:
+            original_data = uploaded_file.read()
+            encrypted_data = fernet.encrypt(original_data)
+            encrypted_filename = f"{uploaded_file.filename}.enc"
+            save_path = os.path.join(UPLOAD_FOLDER, encrypted_filename)
+            with open(save_path, "wb") as f:
+                f.write(encrypted_data)
+            flash("File uploaded and encrypted successfully.")
+            return redirect(url_for('upload'))
 
-# Run the Flask app
-if __name__ == '__main__':
-    app.run(debug=True)
+    return render_template('upload.html')
+
+@app.route('/')
+def index():
+    return redirect(url_for('login'))
+import bcrypt
+
+# In a real app, store this securely
+
+STORED_USER_HASH = bcrypt.hashpw(b"spiritual_pass", bcrypt.gensalt())
+
+def check_password(password: str) -> bool:
+    return bcrypt.checkpw(password.encode(), STORED_USER_HASH)
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Enter the Sanctuary</title>
     <style>
-        body { font-family: 'Georgia', serif; background: #fdf6f0; color: #333; padding: 2rem; }
-        h2 { color: #5e4b8b; }
-        form { margin-top: 1rem; }
-        input, textarea, button { display: block; margin: 0.5rem 0; padding: 0.5rem; width: 100%; }
-        button { background: #5e4b8b; color: white; border: none; cursor: pointer; }
-    </style>
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Secure File Upload</title>
-    <style>
+
         body { font-family: 'Georgia', serif; background: #fdf6f0; color: #333; padding: 2rem; }
         h2 { color: #5e4b8b; }
         form { margin-top: 1rem; }
@@ -330,20 +320,11 @@ if __name__ == '__main__':
 </head>
 <body>
     {% block content %}
-        <h2>Secure File Upload</h2>
+        <h2>Encrypted File Upload</h2>
         <form method="post" enctype="multipart/form-data">
             <label>Select File:</label>
             <input type="file" name="file" required>
             <button type="submit">Upload Securely</button>
-    {% endblock %}
-</body>
-</html>
-    {% block content %}
-        <h2>Enter the Sanctuary</h2>
-        <form method="post">
-            <label>Password:</label>
-            <input type="password" name="password" required>
-            <button type="submit">Enter</button>
     {% endblock %}
 </body>
 </html>
