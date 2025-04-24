@@ -308,9 +308,22 @@ def check_password(password: str) -> bool:
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Enter the Sanctuary</title>
+    {% block title %}<title>{{ block.super }}</title>
+        {% endblock %}
+    {% block content %}<div>{{ block.super }}{{ content|safe }}</div>
+        {% endblock %}
     <style>
-
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    {% block extra_content %}
+    {% endblock %}
+</body>
+</html>
         body { font-family: 'Georgia', serif; background: #fdf6f0; color: #333; padding: 2rem; }
         h2 { color: #5e4b8b; }
         form { margin-top: 1rem; }
