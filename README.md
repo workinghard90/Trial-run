@@ -100,17 +100,14 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-## from flask import Flask
-
-app = Flask(__name__)
-
-from app import routes
 ## from flask import render_template
+
 from app import app
 
 @app.route('/')
 def home():
     return render_template('home.html')
+
 ## Scrapy stuff
 
 .scrapy
@@ -192,7 +189,9 @@ ipython_config.py
 .pdm-build/
 
 ## PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-## Placeholder for AI functionality (e.g., using Hugging Face Transformers)
+
+## Placeholder for AI functionality (e.g., using Hugging Face Transformers) 
+
 def process_input(user_input):
     return f"You said: {user_input}"
 
@@ -345,7 +344,7 @@ def check_password(password: str) -> bool:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">no
     {% block title %}<title>{{ block.super }}</title>
         {% endblock %}
     {% block content %}<div>{{ block.super }}{{ content|safe }}</div>
